@@ -11,9 +11,11 @@ namespace BnBHiddenFeatures;
 
 public static class Reference {
 	public const string GUID = "at.derfl007.bnb.hiddenfeatures";
+	public const string PLUGIN_NAME = "BnBHiddenFeatures";
+	public const string PLUGIN_VERSION = "1.0.0";
 }
 
-[BepInPlugin(Reference.GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+[BepInPlugin(Reference.GUID, Reference.PLUGIN_NAME, Reference.PLUGIN_VERSION)]
 public class Plugin : BaseUnityPlugin {
 	public static readonly ManualLogSource LogSource = new("BnBTestMod");
 
