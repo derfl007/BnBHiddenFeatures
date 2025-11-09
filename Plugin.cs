@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using BB;
+using BB.Base;
 using BB.UI;
 using BepInEx;
 using BepInEx.Logging;
@@ -12,17 +13,17 @@ namespace BnBHiddenFeatures;
 public static class Reference {
 	public const string GUID = "at.derfl007.bnb.hiddenfeatures";
 	public const string PLUGIN_NAME = "BnBHiddenFeatures";
-	public const string PLUGIN_VERSION = "1.0.0";
+	public const string PLUGIN_VERSION = "1.0.1";
 }
 
 [BepInPlugin(Reference.GUID, Reference.PLUGIN_NAME, Reference.PLUGIN_VERSION)]
 public class Plugin : BaseUnityPlugin {
-	public static readonly ManualLogSource LogSource = new("BnBTestMod");
+	public static readonly ManualLogSource LogSource = new("BnBHiddenFeatures");
 
 	private void Awake() {
 		// Plugin startup logic
 		BepInEx.Logging.Logger.Sources.Add(LogSource);
-		LogSource.LogInfo($"Plugin {PluginInfo.PLUGIN_NAME} is loaded!");
+		LogSource.LogInfo($"Plugin {Reference.PLUGIN_NAME} is loaded!");
 		var harmony = new Harmony(Reference.GUID);
 		harmony.PatchAll();
 	}
@@ -30,8 +31,8 @@ public class Plugin : BaseUnityPlugin {
 	private void Update() {
 		// Called every game loop. Displays the cheat panel when F3 is pressed
 		if (!Input.GetKeyDown(KeyCode.F3)) return;
-		UIFactory.SpawnPanel<CheatsPanel>();
-	}
+        UIRoot.GetFactory().SpawnPanel<CheatsPanel>();
+    }
 
 	/// <summary>
 	/// Helper method to reflect the static method OnToggleUI from the BB.AdventureMode class. 

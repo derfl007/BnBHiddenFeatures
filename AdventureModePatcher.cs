@@ -40,14 +40,14 @@ public class AdventureModeCreateControlAndUI {
 }
 
 /// <summary>
-/// Patches the <see cref="AdventureMode.OnDestroy"/> method in <see cref="AdventureMode"/>.
+/// Patches the <see cref="AdventureMode.OnDisable"/> method in <see cref="AdventureMode"/>.
 /// </summary>
-[HarmonyPatch(typeof(AdventureMode), "OnDestroy")]
+[HarmonyPatch(typeof(AdventureMode), "OnDisable")]
 public class AdventureModeOnDestroy {
 	public static void Postfix(AdventureMode __instance) {
 		var player = ServiceLocator.Resolve<InputManager>().player;
 
-		// Making sure that the actions are removed in onDestroy if we're not in a debug build.
+		// Making sure that the actions are removed in OnDisable if we're not in a debug build.
 		if (Debug.isDebugBuild) return;
 		player.RemoveInputEventDelegate(data => Plugin.OnToggleUI(data, __instance), UpdateLoopType.Update,
 			InputActionEventType.ButtonJustPressed,

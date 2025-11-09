@@ -21,6 +21,9 @@ x64/
 # build folder is nowadays used for build scripts and should not be ignored
 #build/
 
+# Libraries, can't add those here for legal reasons. Buy the game to get them and copy them from C:\Program Files (x86)\Steam\steamapps\common\Bear and Breakfast
+[Ll]ib
+
 # NuGet Packages
 *.nupkg
 # The packages folder can be ignored because of Package Restore

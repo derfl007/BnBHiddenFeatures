@@ -4,16 +4,20 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>BnBHiddenFeatures</AssemblyName>
     <Description>Making some hidden dev features available to everyone.</Description>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
-    <PackageReference Include="BepInEx.Core" Version="5.*" />
-    <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
-    <PackageReference Include="UnityEngine.Modules" Version="2022.1.0" IncludeAssets="compile" />
+    <PackageReference Include="BepInEx.Analyzers" Version="1.0.8" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.4.21" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.1.0" />
+    <PackageReference Include="UnityEngine" Version="5.6.1" />
+    <PackageReference Include="UnityEngine.Modules" Version="2021.3.45">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
   
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
@@ -22,385 +26,498 @@
   
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>lib\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="AstarPathfindingProject">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\AstarPathfindingProject.dll</HintPath>
+      <HintPath>lib\AstarPathfindingProject.dll</HintPath>
     </Reference>
     <Reference Include="BB.Audio">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\BB.Audio.dll</HintPath>
+      <HintPath>lib\BB.Audio.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.Automation">
+      <HintPath>lib\BB.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.AutomationUI">
+      <HintPath>lib\BB.AutomationUI.dll</HintPath>
     </Reference>
     <Reference Include="BB.Base">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\BB.Base.dll</HintPath>
+      <HintPath>lib\BB.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.BaseUI">
+      <HintPath>lib\BB.BaseUI.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.Behaviours">
+      <HintPath>lib\BB.Behaviours.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.Camera">
+      <HintPath>lib\BB.Camera.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.CameraUI">
+      <HintPath>lib\BB.CameraUI.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.Characters">
+      <HintPath>lib\BB.Characters.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.CharactersUI">
+      <HintPath>lib\BB.CharactersUI.dll</HintPath>
     </Reference>
     <Reference Include="BB.Controls">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\BB.Controls.dll</HintPath>
+      <HintPath>lib\BB.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.Cooking">
+      <HintPath>lib\BB.Cooking.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.Cooking.Base">
+      <HintPath>lib\BB.Cooking.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.Crafting">
+      <HintPath>lib\BB.Crafting.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.CraftingUI">
+      <HintPath>lib\BB.CraftingUI.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.CutScenes">
+      <HintPath>lib\BB.CutScenes.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.CutScenesUI">
+      <HintPath>lib\BB.CutScenesUI.dll</HintPath>
     </Reference>
     <Reference Include="BB.Definitions">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\BB.Definitions.dll</HintPath>
+      <HintPath>lib\BB.Definitions.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.DialogueSystemExtensions">
+      <HintPath>lib\BB.DialogueSystemExtensions.dll</HintPath>
     </Reference>
     <Reference Include="BB.Events">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\BB.Events.dll</HintPath>
+      <HintPath>lib\BB.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.Game">
+      <HintPath>lib\BB.Game.dll</HintPath>
     </Reference>
     <Reference Include="BB.GameTime">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\BB.GameTime.dll</HintPath>
+      <HintPath>lib\BB.GameTime.dll</HintPath>
     </Reference>
-    <Reference Include="BB.HouseEngine">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\BB.HouseEngine.dll</HintPath>
+    <Reference Include="BB.GameTimeUI">
+      <HintPath>lib\BB.GameTimeUI.dll</HintPath>
     </Reference>
-    <Reference Include="BB.Inventory">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\BB.Inventory.dll</HintPath>
+    <Reference Include="BB.Hank">
+      <HintPath>lib\BB.Hank.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.Inventories">
+      <HintPath>lib\BB.Inventories.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.InventoriesUI">
+      <HintPath>lib\BB.InventoriesUI.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.MiniGames">
+      <HintPath>lib\BB.MiniGames.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.Narrative">
+      <HintPath>lib\BB.Narrative.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.NarrativeUI">
+      <HintPath>lib\BB.NarrativeUI.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.Navigation">
+      <HintPath>lib\BB.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.Progression">
+      <HintPath>lib\BB.Progression.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.ProgressionUI">
+      <HintPath>lib\BB.ProgressionUI.dll</HintPath>
     </Reference>
     <Reference Include="BB.Rendering">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\BB.Rendering.dll</HintPath>
+      <HintPath>lib\BB.Rendering.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.ResortsUI">
+      <HintPath>lib\BB.ResortsUI.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.SpecialObjects">
+      <HintPath>lib\BB.SpecialObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.Tutorials">
+      <HintPath>lib\BB.Tutorials.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.TutorialsUI">
+      <HintPath>lib\BB.TutorialsUI.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.UI">
+      <HintPath>lib\BB.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.Weather">
+      <HintPath>lib\BB.Weather.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.WeatherUI">
+      <HintPath>lib\BB.WeatherUI.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.World">
+      <HintPath>lib\BB.World.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.WorldEngine">
+      <HintPath>lib\BB.WorldEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.WorldEngineUI">
+      <HintPath>lib\BB.WorldEngineUI.dll</HintPath>
+    </Reference>
+    <Reference Include="BB.WorldUI">
+      <HintPath>lib\BB.WorldUI.dll</HintPath>
     </Reference>
     <Reference Include="Cinemachine">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Cinemachine.dll</HintPath>
-    </Reference>
-    <Reference Include="clipper_library">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\clipper_library.dll</HintPath>
+      <HintPath>lib\Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="Coffee.SoftMaskForUGUI">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Coffee.SoftMaskForUGUI.dll</HintPath>
+      <HintPath>lib\Coffee.SoftMaskForUGUI.dll</HintPath>
     </Reference>
     <Reference Include="com.rlabrecque.steamworks.net">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\com.rlabrecque.steamworks.net.dll</HintPath>
+      <HintPath>lib\com.rlabrecque.steamworks.net.dll</HintPath>
     </Reference>
     <Reference Include="DialogueSystem">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\DialogueSystem.dll</HintPath>
+      <HintPath>lib\DialogueSystem.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\DOTween.dll</HintPath>
+      <HintPath>lib\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="FMODUnity">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\FMODUnity.dll</HintPath>
+      <HintPath>lib\FMODUnity.dll</HintPath>
     </Reference>
     <Reference Include="FMODUnityResonance">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\FMODUnityResonance.dll</HintPath>
+      <HintPath>lib\FMODUnityResonance.dll</HintPath>
     </Reference>
     <Reference Include="LeanTween">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\LeanTween.dll</HintPath>
+      <HintPath>lib\LeanTween.dll</HintPath>
     </Reference>
     <Reference Include="MessagePack">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\MessagePack.dll</HintPath>
+      <HintPath>lib\MessagePack.dll</HintPath>
     </Reference>
     <Reference Include="MessagePack.Annotations">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\MessagePack.Annotations.dll</HintPath>
+      <HintPath>lib\MessagePack.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>lib\Mono.Security.dll</HintPath>
     </Reference>
     <Reference Include="MoreMountains.InventoryEngine">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\MoreMountains.InventoryEngine.dll</HintPath>
+      <HintPath>lib\MoreMountains.InventoryEngine.dll</HintPath>
     </Reference>
     <Reference Include="MoreMountains.Tools">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\MoreMountains.Tools.dll</HintPath>
+      <HintPath>lib\MoreMountains.Tools.dll</HintPath>
     </Reference>
     <Reference Include="MoreMountains.Tools.Cinemachine">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\MoreMountains.Tools.Cinemachine.dll</HintPath>
+      <HintPath>lib\MoreMountains.Tools.Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="MsgPack">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\MsgPack.dll</HintPath>
+      <HintPath>lib\MsgPack.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Newtonsoft.Json.dll</HintPath>
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NSSDK">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\NSSDK.dll</HintPath>
+      <HintPath>lib\NSSDK.dll</HintPath>
     </Reference>
     <Reference Include="ParadoxNotion">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\ParadoxNotion.dll</HintPath>
+      <HintPath>lib\ParadoxNotion.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.ClipperLib">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Pathfinding.ClipperLib.dll</HintPath>
+      <HintPath>lib\Pathfinding.ClipperLib.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+      <HintPath>lib\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.Poly2Tri">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Pathfinding.Poly2Tri.dll</HintPath>
+      <HintPath>lib\Pathfinding.Poly2Tri.dll</HintPath>
     </Reference>
     <Reference Include="PixelCrushers">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\PixelCrushers.dll</HintPath>
+      <HintPath>lib\PixelCrushers.dll</HintPath>
+    </Reference>
+    <Reference Include="Quadtree">
+      <HintPath>lib\Quadtree.dll</HintPath>
     </Reference>
     <Reference Include="Rewired">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Rewired.dll</HintPath>
+      <HintPath>lib\Rewired.dll</HintPath>
     </Reference>
     <Reference Include="Rewired_Core">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Rewired_Core.dll</HintPath>
+      <HintPath>lib\Rewired_Core.dll</HintPath>
     </Reference>
     <Reference Include="Rewired_Windows">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Rewired_Windows.dll</HintPath>
+      <HintPath>lib\Rewired_Windows.dll</HintPath>
     </Reference>
     <Reference Include="Rewired_Windows_Functions">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Rewired_Windows_Functions.dll</HintPath>
+      <HintPath>lib\Rewired_Windows_Functions.dll</HintPath>
+    </Reference>
+    <Reference Include="SonyNP">
+      <HintPath>lib\SonyNP.dll</HintPath>
+    </Reference>
+    <Reference Include="SonyPS4SaveData">
+      <HintPath>lib\SonyPS4SaveData.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Extras">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.2D.Tilemap.Extras.dll</HintPath>
+      <HintPath>lib\Unity.2D.Tilemap.Extras.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Addressables">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.Addressables.dll</HintPath>
+      <HintPath>lib\Unity.Addressables.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.Burst.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Cecil">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.Burst.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Cecil.Mdb">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.Burst.Cecil.Mdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Cecil.Pdb">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.Burst.Cecil.Pdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Cecil.Rocks">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.Burst.Cecil.Rocks.dll</HintPath>
+      <HintPath>lib\Unity.Burst.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.Burst.Unsafe.dll</HintPath>
+      <HintPath>lib\Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.Mathematics.dll</HintPath>
+      <HintPath>lib\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.MemoryProfiler">
+      <HintPath>lib\Unity.MemoryProfiler.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.Postprocessing.Runtime.dll</HintPath>
+      <HintPath>lib\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+      <HintPath>lib\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      <HintPath>lib\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+      <HintPath>lib\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+      <HintPath>lib\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+      <HintPath>lib\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+      <HintPath>lib\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ResourceManager">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.ResourceManager.dll</HintPath>
+      <HintPath>lib\Unity.ResourceManager.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ScriptableBuildPipeline">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.ScriptableBuildPipeline.dll</HintPath>
+      <HintPath>lib\Unity.ScriptableBuildPipeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      <HintPath>lib\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\Unity.Timeline.dll</HintPath>
+      <HintPath>lib\Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ZombieObjectDetector.Runtime">
+      <HintPath>lib\Unity.ZombieObjectDetector.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>lib\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AccessibilityModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.AccessibilityModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.AccessibilityModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.AIModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.AIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AndroidJNIModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.AndroidJNIModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.AndroidJNIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AnimationModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.AnimationModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ARModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.ARModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.ARModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.AssetBundleModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.AudioModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ClothModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.ClothModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.ClothModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ClusterInputModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.ClusterInputModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.ClusterInputModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ClusterRendererModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.ClusterRendererModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.ClusterRendererModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CrashReportingModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.CrashReportingModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.CrashReportingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.DirectorModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.DirectorModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.DirectorModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.DSPGraphModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.DSPGraphModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.DSPGraphModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.GameCenterModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.GameCenterModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.GameCenterModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.GIModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.GIModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.GIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.GridModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.GridModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.GridModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.HotReloadModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.HotReloadModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.HotReloadModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.ImageConversionModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.IMGUIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.InputLegacyModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.InputModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.InputModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.InputModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.JSONSerializeModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.LocalizationModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.LocalizationModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.LocalizationModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.NVIDIAModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.NVIDIAModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.NVIDIAModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.ParticleSystemModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PerformanceReportingModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.PerformanceReportingModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.PerformanceReportingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Physics2DModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.Physics2DModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ProfilerModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.ProfilerModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.ProfilerModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ScreenCaptureModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.ScreenCaptureModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.ScreenCaptureModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SharedInternalsModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.SharedInternalsModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.SharedInternalsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>lib\UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpriteMaskModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.SpriteMaskModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.SpriteMaskModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpriteShapeModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.SpriteShapeModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.SpriteShapeModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StreamingModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.StreamingModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.StreamingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SubstanceModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.SubstanceModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.SubstanceModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SubsystemsModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.SubsystemsModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.SubsystemsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TerrainModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.TerrainModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.TerrainModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TerrainPhysicsModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.TerrainPhysicsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TextCoreFontEngineModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TextCoreTextEngineModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TilemapModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.TilemapModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.TilemapModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TLSModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.TLSModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.TLSModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <HintPath>lib\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIElementsModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.UIElementsModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.UIElementsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIElementsNativeModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.UIElementsNativeModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.UIElementsNativeModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.UIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UmbraModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.UmbraModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.UmbraModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UNETModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.UNETModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsCommonModule">
+      <HintPath>lib\UnityEngine.UnityAnalyticsCommonModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityAnalyticsModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.UnityAnalyticsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityConnectModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.UnityConnectModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityCurlModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.UnityCurlModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.UnityCurlModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityTestProtocolModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.UnityTestProtocolModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAudioModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.UnityWebRequestModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestTextureModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestWWWModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VehiclesModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.VehiclesModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.VehiclesModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VFXModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.VFXModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.VFXModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VideoModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.VideoModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.VideoModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VirtualTexturingModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.VirtualTexturingModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.VirtualTexturingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VRModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.VRModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.VRModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.WindModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.WindModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.WindModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>lib\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XRModule">
-      <HintPath>D:\Games\Steam\steamapps\common\Bear and Breakfast\BearAndBreakfast_Data\Managed\UnityEngine.XRModule.dll</HintPath>
+      <HintPath>lib\UnityEngine.XRModule.dll</HintPath>
     </Reference>
   </ItemGroup>
+    
+    
 </Project>
